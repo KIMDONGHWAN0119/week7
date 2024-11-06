@@ -40,27 +40,32 @@ public class Calculator {
 
             System.out.println(result);
 
-            System.out.print("값을 저장하거나 기록을 보시겠습니까? (프로그램 종료 시 휘발) Y/N/0/종료 : E : ");
+            System.out.print("값을 저장하거나 기록을 보시겠습니까? (프로그램 종료 시 휘발) Y/N/기록(0)/종료(E) : ");
 
             whether = sc.next().charAt(0);
 
-            if(whether=='Y') {
-                calc.arr_fun(result+"");
-            }else if('0' == whether ) {
-                for(int i=0;i<calc.arr.length;i++){
-                    if(calc.arr[i] != null){
-                        System.out.println((i+1) + " : " + calc.arr[i]);
-                    }else{
-                        System.out.println((i+1) + " : 비어있음");
-                    }
-                }
-                System.out.println("최대 5번까지 저장됩니다.");
-
-            }else if(whether=='E'){
-                System.exit(0);
-            }
+            calc.record(whether, result);
         }
 
+    }
+
+    void record( char whether, Object result){
+
+        if(whether=='Y') {
+            arr_fun(result+"");
+        }else if('0' == whether ) {
+            for(int i=0;i<arr.length;i++){
+                if(arr[i] != null){
+                    System.out.println((i+1) + " : " + arr[i]);
+                }else{
+                    System.out.println((i+1) + " : 비어있음");
+                }
+            }
+            System.out.println("최대 5번까지 저장됩니다.");
+
+        }else if(whether=='E'){
+            System.exit(0);
+        }
     }
 
     void arr_fun(String str){
