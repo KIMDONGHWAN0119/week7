@@ -15,7 +15,10 @@ public class Calculator {
 
         //-----------------------------------
         Object result = 0;
-        char whether = '.';
+        char whether;
+        char operator;
+        double num1;
+        double num2;
         //-----------------------------------
 
 
@@ -23,13 +26,14 @@ public class Calculator {
             System.out.println("각 피, 연산자마다 띄워쓰기를 해주세요.");
             System.out.print("계산식 입력 (Ex : 1 + 1) : ");
 
-            double num1 = sc.nextDouble();
+            num1 = sc.nextDouble();
 
             if ( num1 == 0 ){ System.out.println("피 연산자 1에 0값을 넣을 수 없습니다. 프로그램을 종료합니다."); break; }
 
-            char operator = sc.next().charAt(0);
+            operator = sc.next().charAt(0);
 
-            double num2 = sc.nextDouble();
+            num2 = sc.nextDouble();
+
             switch (operator) {
                 case '+': result = calc.add(num1, num2); break;
                 case '-': result = calc.sub(num1, num2); break;
